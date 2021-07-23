@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="146dp"
+            android:layout_width="186dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -27,63 +27,106 @@
             <RadioGroup
                 android:id="@+id/RadioPos"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="BB" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="SB" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="Button" />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="4" />
 
                 <RadioButton
                     android:id="@+id/radioButton5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="5" />
 
                 <RadioButton
                     android:id="@+id/radioButton6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="6" />
 
                 <RadioButton
                     android:id="@+id/radioButton7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="7" />
 
                 <RadioButton
                     android:id="@+id/radioButton8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="56dp"
                     android:text="8" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rgAction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Ставка/Действие" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonPush"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="54dp"
+                    android:text="Push" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonRaise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="54dp"
+                    android:text="Raise" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonLimp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="54dp"
+                    android:text="Limp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="54dp"
+                    android:text="0" />
+
             </RadioGroup>
 
         </LinearLayout>
@@ -92,55 +135,6 @@
             android:layout_width="157dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Ставка/Действие" />
-
-            <RadioGroup
-                android:id="@+id/rgAction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/radioButtonPush"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="64dp"
-                    android:text="Push" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonRaise"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="64dp"
-                    android:text="Raise" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonLimp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="64dp"
-                    android:text="Limp" />
-
-                <RadioButton
-                    android:id="@+id/radioButton0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="64dp"
-                    android:text="0" />
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Стек" />
 
             <RadioGroup
                 android:id="@+id/rgStakeSize"
@@ -151,42 +145,162 @@
                     android:id="@+id/rb40bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="32dp"
                     android:text="40 BB" />
 
                 <RadioButton
                     android:id="@+id/rb25bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="32dp"
                     android:text="25 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb22bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="22 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb21bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="21 BB" />
 
                 <RadioButton
                     android:id="@+id/rb20bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="32dp"
                     android:text="20 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb19bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="19 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb18bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="18 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb17bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="17 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb16bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="16 BB" />
 
                 <RadioButton
                     android:id="@+id/rb15bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="32dp"
                     android:text="15 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb14bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="14 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb13bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="13 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb12bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="12 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb11bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="11 BB" />
 
                 <RadioButton
                     android:id="@+id/rb10bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="64dp"
+                    android:minHeight="32dp"
                     android:text="10 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb9bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="9 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb8bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="8 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb7bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="7 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb6bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="6 BB" />
 
                 <RadioButton
                     android:id="@+id/rb5bb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="32dp"
                     android:text="5 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb4bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="4 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb3bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="3 BB" />
+
+                <RadioButton
+                    android:id="@+id/rb2bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:text="2 BB" />
 
             </RadioGroup>
 

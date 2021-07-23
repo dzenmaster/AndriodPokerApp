@@ -308,7 +308,8 @@ public class MyView extends View {
                     paint.setColor(Color.parseColor("#007F00"));*/
                 }
                 if (m_push[i][j]==3) {
-                    paint.setColor(Color.parseColor("#92D050"));
+                    //paint.setColor(Color.parseColor("#92D050"));
+                    paint.setColor(Color.parseColor("#00B000"));
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setStrokeWidth(7);
                     canvas.drawRect(lp + szItem / 2 + szItem * j+5, 10 + szItem + szItem * i+5, lp + szItem / 2 + szItem + szItem * j-5, 10 + szItem + szItem + szItem * i-5, paint);
@@ -317,7 +318,8 @@ public class MyView extends View {
                     paint.setColor(Color.parseColor("#007F00"));
                 }
                 if (m_push[i][j]==2) {
-                    paint.setColor(Color.parseColor("#C6E0B4"));
+                    //paint.setColor(Color.parseColor("#C6E0B4"));
+                    paint.setColor(Color.parseColor("#00FE00"));
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setStrokeWidth(7);
                     canvas.drawRect(lp + szItem / 2 + szItem * j+5, 10 + szItem + szItem * i+5, lp + szItem / 2 + szItem + szItem * j-5, 10 + szItem + szItem + szItem * i-5, paint);
@@ -326,7 +328,8 @@ public class MyView extends View {
                     paint.setColor(Color.parseColor("#007F00"));
                 }
                 if (m_push[i][j]==1) {
-                    paint.setColor(Color.parseColor("#FFF2CC"));
+                    //paint.setColor(Color.parseColor("#FFF2CC"));
+                    paint.setColor(Color.parseColor("#FFFF32"));
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setStrokeWidth(7);
                     canvas.drawRect(lp + szItem / 2 + szItem * j+5, 10 + szItem + szItem * i+5, lp + szItem / 2 + szItem + szItem * j-5, 10 + szItem + szItem + szItem * i-5, paint);
@@ -335,7 +338,8 @@ public class MyView extends View {
                     paint.setColor(Color.parseColor("#007F00"));
                 }
                 if (m_push[i][j]==-1) {
-                    paint.setColor(Color.parseColor("#F8CBAD"));
+                    //paint.setColor(Color.parseColor("#F8CBAD"));
+                    paint.setColor(Color.parseColor("#FF0000"));
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setStrokeWidth(7);
                     canvas.drawRect(lp + szItem / 2 + szItem * j+5, 10 + szItem + szItem * i+5, lp + szItem / 2 + szItem + szItem * j-5, 10 + szItem + szItem + szItem * i-5, paint);
