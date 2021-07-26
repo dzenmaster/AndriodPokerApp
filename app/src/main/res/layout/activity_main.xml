@@ -103,29 +103,35 @@
                     android:id="@+id/radioButtonPush"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="54dp"
+                    android:minHeight="32dp"
                     android:text="Push" />
 
                 <RadioButton
                     android:id="@+id/radioButtonRaise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="54dp"
+                    android:minHeight="32dp"
                     android:text="Raise" />
 
                 <RadioButton
                     android:id="@+id/radioButtonLimp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="54dp"
+                    android:minHeight="32dp"
                     android:text="Limp" />
 
                 <RadioButton
                     android:id="@+id/radioButton0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="54dp"
+                    android:minHeight="32dp"
                     android:text="0" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonR0x3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R0 x3" />
 
             </RadioGroup>
 

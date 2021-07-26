@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             {100.1, 83.11, 65.01, 31.23,  24.74,  21.88,  13.88, 11.92}  // 0
         };
 
-
         calcDP();
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

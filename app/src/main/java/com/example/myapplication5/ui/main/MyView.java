@@ -1,11 +1,17 @@
 package com.example.myapplication5.ui.main;
 
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.View;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Color;
+import android.widget.ImageView;
+
+import com.example.myapplication5.R;
 
 
 public class MyView extends View {
@@ -200,7 +206,20 @@ public class MyView extends View {
 
         Paint paint=new Paint();
         // Use Color.parseColor to define HTML colors
-        paint.setColor(Color.parseColor("#FFFFFF"));
+
+        //Image picture = ImageIO.read(new File("picture.png"));
+        //ImageView imageView = new ImageView();
+        // применяем ресурс
+        //imageView.setImageResource(R.drawable.BBvs3x);
+
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), com.example.myapplication5.R.drawable.bbvs3x);
+        canvas.drawBitmap(largeIcon,0,0,paint );
+        //canvas.drawPicture();
+
+
+        //return;
+
+       /* paint.setColor(Color.parseColor("#FFFFFF"));
 
         //canvas.drawCircle(x, y, radius, paint);
         //canvas.drawText(String.format("%d,%d", 111,333),2,2,paint);
@@ -300,12 +319,12 @@ public class MyView extends View {
                 }
 
                 if (m_diff[i][j]==1) {
-                 /*   paint.setColor(Color.parseColor("#BF0000"));
-                    canvas.drawCircle(((lp + szItem / 2 + szItem * j)+(lp + szItem / 2 + szItem + szItem * j))/2,
-                            ((10 + szItem + szItem * i) +(10 + szItem + szItem + szItem * i))/2,
-                            10,
-                            paint);
-                    paint.setColor(Color.parseColor("#007F00"));*/
+                 //   paint.setColor(Color.parseColor("#BF0000"));
+                 //   canvas.drawCircle(((lp + szItem / 2 + szItem * j)+(lp + szItem / 2 + szItem + szItem * j))/2,
+                 //           ((10 + szItem + szItem * i) +(10 + szItem + szItem + szItem * i))/2,
+                 //           10,
+                 //           paint);
+                 //   paint.setColor(Color.parseColor("#007F00"));
                 }
                 if (m_push[i][j]==3) {
                     //paint.setColor(Color.parseColor("#92D050"));
@@ -355,6 +374,6 @@ public class MyView extends View {
         for (int i=0;i<12;++i) {
             canvas.drawLine( lp + szItem / 2 + szItem + szItem*i,10 + szItem,lp + szItem / 2 + szItem + szItem*i , 10 + szItem  + szItem*13, paint);
             canvas.drawLine( lp + szItem / 2,10 + szItem*2 + szItem*i,lp + szItem / 2 + szItem*13 ,  10 + szItem*2 + szItem*i, paint);
-        }
+        }*/
     }
 };
