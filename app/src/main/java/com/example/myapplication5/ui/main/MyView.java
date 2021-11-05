@@ -30,15 +30,30 @@ public class MyView extends View {
     }
 
     private double[][] m_prc;
-    private double[][] m_prc2;
-    private double[][] m_prc3;
+    private double[][] m_prc2;    private double[][] m_prc3;
     private double[][] m_prc4;
+
     private double[][] m_prc1_50;
     private double[][] m_prc2_50;
+    private String m_currAct;
+    private String m_currStake;
+    private String m_currPos;
+    private String[] m_letters;
+
     private int[][] m_diff;
     private int[][] m_push;
     private double m_currPrc;
     private int m_currChart;
+
+    public void setCurrAct(String a_ca){
+        m_currAct = a_ca;
+    }
+    public void setCurrStake(String a_cs){
+        m_currStake = a_cs;
+    }
+    public void setCurrPos(String a_cp){
+        m_currPos = a_cp;
+    }
 
     public void setCurrPrc(double a_prc){
         m_currPrc = a_prc;
@@ -57,7 +72,11 @@ public class MyView extends View {
 
     private void init(Context context) {
         //do stuff that was in your original constructor...
+        m_currAct="";
+        m_currStake="";
+        m_currPos="";
         m_currChart = 1;
+        m_letters = new String[] {"A","K","Q","J","T","9","8","7","6","5","4","3","2"};
         m_prc = new double[][]
     {
 // A    K     Q     J     10     9     8     7     6     5     4     3      2
@@ -205,21 +224,1530 @@ public class MyView extends View {
         super.onDraw(canvas);
 
         Paint paint=new Paint();
-        // Use Color.parseColor to define HTML colors
 
-        //Image picture = ImageIO.read(new File("picture.png"));
-        //ImageView imageView = new ImageView();
-        // применяем ресурс
-        //imageView.setImageResource(R.drawable.BBvs3x);
+        int tCurrStake = 100;
+        if (m_currStake.length()>3) {
+            try {
+                String tStr = m_currStake.substring(0, m_currStake.length() - 3);
+                tCurrStake = Integer.parseInt(tStr);
+            } catch (NumberFormatException ex) {
+                return;
+            }
+        }
+        else{
+            return;
+        }
 
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), com.example.myapplication5.R.drawable.bbvs3x);
-        canvas.drawBitmap(largeIcon,0,0,paint );
-        //canvas.drawPicture();
+        int lpos=120;
+        int tpos=-68;
+        if (m_currPos.equals("BB")) {
+            if ((tCurrStake>12)&&(tCurrStake<18)) {
+                if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__15bb__vs2x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__15bb__vs2x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__15bb__vs2x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__15bb__vs2x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__15bb__vs2x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake>17)&&(tCurrStake<23)) {
+                if (m_currAct.equals("R0 x3")) {
+                    //   com.example.myapplication5.R.drawable.
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__20bb__bbvs3x);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__20bb__bbvslimp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__20bb__vs2x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__20bb__vs2x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__20bb__vs2x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__20bb__vs2x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__20bb__vs2x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (tCurrStake==25) {
+                if (m_currAct.equals("R0 x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__25bb__bbvs3x);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__25bb__bbvslimp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__25bb__vs2x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__25bb__vs2x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__25bb__vs2x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__25bb__vs2x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__25bb__vs2x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (tCurrStake==30) {
+                if (m_currAct.equals("R0 x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__30bb__bbvs3_8x);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__30bb__bbvslimp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__30bb__vs2_2x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__30bb__vs2_2x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__30bb__vs2_2x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__30bb__vs2_2x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__30bb__vs2_2x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R14")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R24")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R34")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R04")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake==40)||(tCurrStake==50)) {
+                if (m_currAct.equals("R0 x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__50bb__bbvs4x);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__50bb__bbvslimp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__50bb__vs2_5x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__50bb__vs2_5x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__50bb__vs2_5x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__50bb__vs2_5x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__50bb__vs2_5x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R14")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R24")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R34")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R04")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (tCurrStake==100) {
+                if (m_currAct.equals("R0 x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__100bb__bbvs4x);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__bb__100bb__bbvslimp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {//but
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__100bb__vs2_5x____btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {//co
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__100bb__vs2_5x____co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {//hj
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__100bb__vs2_5x____hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {//mp
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__100bb__vs2_5x____mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R5")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bbdefend__100bb__vs2_5x____ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R14")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R24")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R34")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R04")) {//ep
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("SB")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__sb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__sb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__sb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__sb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__sb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__20bb__sb_uo );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__20bb__limvvsiso3x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__sb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__sb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__sb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__sb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__sb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__25bb__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__25bb__limvvsiso3x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__sb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__sb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__sb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__sb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__sb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__30bb__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__30bb__limvvsiso3_8x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("x3x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__30bb__vs_2_5x_3bet );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__sb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__sb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__sb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__sb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__sb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__sb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__50bb__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__50bb__limvvsiso4x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("x3x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__50bb__vs_3bet_3x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__sb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__100bb__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Limp x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__100bb__limvvsiso4x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("x3x3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.bvb__sb__100bb__vs_3bet_3x );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__sb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__sb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__sb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__sb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R4")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__sb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R03")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R13")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R23")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__sb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("Button")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__btn__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__btn__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__btn__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                   Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__btn__hj );
+                   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__btn__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__btn__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__btn__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                   Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__btn__co );
+                   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                   return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__btn__hj);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__btn__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__btn__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__btn__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__btn__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____50bb__btn__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____50bb__btn__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____50bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____50bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__btn__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__btn__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__btn__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
 
 
-        //return;
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__btn__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__btn__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__btn__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__btn__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__btn__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R3")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__btn__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
 
-       /* paint.setColor(Color.parseColor("#FFFFFF"));
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__btn__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R02")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__btn__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R12")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__btn__mp__hj );
+                   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+        }
+        else if (m_currPos.equals("4")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__co__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__co__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__co__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__co__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__co__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__co__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__co__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__co__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__co__mp);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__30bb__co__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__co__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____50bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__50bb__co__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__co__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__co__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__co__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__co__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__co__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R2")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__co__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R01")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.sqz__100bb__co__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("5")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__hj__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__hj__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__hj__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__hj__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__hj__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__hj__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__hj__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__hj__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__hj__ep);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__hj__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__hj__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__hj__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__hj__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__hj__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                      Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__hj__co );
+                      canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__hj__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__hj__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("6")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__mp__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__mp__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__mp__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____20bb__mp__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__mp__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____25bb__mp__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__mp__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3HJ")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__30bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__mp__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____30bb__mp__ep);
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__mp__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3HJ")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__50bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__lj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__mp__bb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3SB")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__mp__sb );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3BTN")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__mp__btn );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3CO")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__mp__co );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("Rx3HJ")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__3bet__100bb__mp__hj );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__mp__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+                else if (m_currAct.equals("R1")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__30bb____100bb__mp__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("7")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__mp );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+        else if (m_currPos.equals("8")) {
+            if ((tCurrStake > 12) && (tCurrStake < 18)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ((tCurrStake > 17) && (tCurrStake < 23)) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__20bb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 25 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__25bb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 30 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__30bb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if (( tCurrStake == 40 )||( tCurrStake == 50 )) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__40__50bb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+            else if ( tCurrStake == 100 ) {
+                if (m_currAct.equals("0")) {
+                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__60__100bb__ep );
+                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    return;
+                }
+            }
+        }
+
+
+
+        paint.setColor(Color.parseColor("#FFFFFF"));
 
         //canvas.drawCircle(x, y, radius, paint);
         //canvas.drawText(String.format("%d,%d", 111,333),2,2,paint);
@@ -268,6 +1796,9 @@ public class MyView extends View {
 
         paint.setColor(Color.parseColor("#007F00"));
         double prcToThr=0;
+        paint.setTextSize(fSize/2.8F);
+        paint.setTextAlign(Paint.Align.LEFT);
+
         for (int i=0;i<13;++i) {
             for (int j=0;j<13;++j) {
                 boolean needToDraw=false;
@@ -367,6 +1898,18 @@ public class MyView extends View {
                     paint.setColor(Color.parseColor("#007F00"));
                 }
 
+                paint.setColor(Color.parseColor("#000000"));
+                String currText="A";
+                if (i==j)
+                    currText=m_letters[i]+m_letters[j];
+                else if (i<j)
+                    currText=m_letters[i]+m_letters[j]+"s";
+                else
+                    currText=m_letters[j]+m_letters[i]+"o";
+                canvas.drawText( currText, lp + szItem/2 + szItem * j+9, 3 + szItem*1.5F + szItem * i, paint);
+
+                paint.setColor(Color.parseColor("#007F00"));
+
             }
 
         }
@@ -374,6 +1917,6 @@ public class MyView extends View {
         for (int i=0;i<12;++i) {
             canvas.drawLine( lp + szItem / 2 + szItem + szItem*i,10 + szItem,lp + szItem / 2 + szItem + szItem*i , 10 + szItem  + szItem*13, paint);
             canvas.drawLine( lp + szItem / 2,10 + szItem*2 + szItem*i,lp + szItem / 2 + szItem*13 ,  10 + szItem*2 + szItem*i, paint);
-        }*/
+        }
     }
 };
