@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 ActionR0x3.setVisibility(View.GONE);
                 RadioButton ActionL0 = (RadioButton) findViewById(R.id.radioButtonL0);
                 ActionL0.setVisibility(View.GONE);
+                RadioButton ActionRPush = (RadioButton) findViewById(R.id.radioButtonRPush);
+                ActionRPush.setVisibility(View.VISIBLE);
                 RadioButton ActionR0 = (RadioButton) findViewById(R.id.rbR0);
                 ActionR0.setVisibility(View.VISIBLE);
                 RadioButton ActionR1 = (RadioButton) findViewById(R.id.rbR1);
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         ActionR4.setVisibility(View.VISIBLE);
                         ActionR5.setVisibility(View.VISIBLE);
                         ActionR0.setVisibility(View.GONE);
+                        ActionRPush.setVisibility(View.GONE);
                         ActionR01.setVisibility(View.VISIBLE);
                         ActionR02.setVisibility(View.VISIBLE);
                         ActionR12.setVisibility(View.VISIBLE);
@@ -705,15 +708,21 @@ public class MainActivity extends AppCompatActivity {
 
             tDiff[0][4]=1;
             tDiff[1][2]=1;tDiff[1][3]=1;
-            tDiff[2][3]=1;
 
-            tDiff[6][6]=1;
+
+
 
 
             if ((stakeSz.equals("40 BB"))||(stakeSz.equals("50 BB"))||(stakeSz.equals("100 BB"))) {
                 tDiff[0][5]=1;
                 tDiff[3][4]=1;
                 tDiff[7][7]=1;
+                tDiff[6][6]=1;
+                tDiff[2][3]=1;
+            }
+            else if(stakeSz.equals("30 BB")){
+                tDiff[6][6]=1;
+                tDiff[2][3]=1;
             }
             else{
 
@@ -832,14 +841,82 @@ public class MainActivity extends AppCompatActivity {
             }
             mv.setCurrDiff(tDiff);
 
-            if (tCurrStake <= 12) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1; tPush[2][1] = 1; tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                tPush[3][0] = 1;                                   tPush[3][3] = 1; tPush[3][4] = 1;
-                tPush[4][4] = 1;tPush[4][5] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
+            if (tCurrStake <= 5) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 3;tPush[0][5] = 3; tPush[0][6] = 3; tPush[0][7] = 3;tPush[0][8] = 3; tPush[0][9] = 3;tPush[0][10] = 2;tPush[0][11] = 2;tPush[0][12] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 2;tPush[1][5] = 2;
+                tPush[2][0] = 3; tPush[2][1] = 3; tPush[2][2] = 3; tPush[2][3] = 2; tPush[2][4] = 2;tPush[2][5] = 1;
+                tPush[3][0] = 3; tPush[3][1] = 2; tPush[3][2] = 1; tPush[3][3] = 3; tPush[3][4] = 2;
+                tPush[4][0] = 3;                                                    tPush[4][4] = 3;tPush[4][5] = 1;
+                tPush[5][0] = 3; tPush[5][5] = 3;
+                tPush[6][0] = 3 ;tPush[6][6] = 3;
+                tPush[7][0] = 2; tPush[7][7] = 3;
+                tPush[8][0] = 2;tPush[8][8] = 3;
+                tPush[9][0] = 2;tPush[9][9] = 3;
+                tPush[10][0] = 2; tPush[10][10] = 3;
+                tPush[11][11] = 3;
+                tPush[12][12] = 2;
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if (tCurrStake <= 12) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 3;tPush[0][5] = 3; tPush[0][6] = 3; tPush[0][7] = 3;tPush[0][8] = 2; tPush[0][9] = 3;tPush[0][10] = 2;tPush[0][11] = 2;tPush[0][12] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 3;tPush[1][5] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 3; tPush[2][2] = 3; tPush[2][3] = 3; tPush[2][4] = 3;tPush[2][5] = 2;
+                tPush[3][0] = 3; tPush[3][1] = 1;                  tPush[3][3] = 3; tPush[3][4] = 3;tPush[3][5] = 2;
+                tPush[4][0] = 3;                                                    tPush[4][4] = 3;tPush[4][5] = 2;
+                tPush[5][0] = 3; tPush[5][5] = 3;
+                tPush[6][0] = 1; tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 3;
+                tPush[11][11] = 3;
+                tPush[12][12] = 2;
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 3;tPush[0][5] = 2; tPush[0][6] = 1; tPush[0][7] = 1; tPush[0][9] = 1;tPush[0][10] = 1;tPush[0][11] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 3;tPush[1][5] = 2;
+                tPush[2][0] = 3; tPush[2][1] = 3; tPush[2][2] = 3; tPush[2][3] = 3; tPush[2][4] = 3;tPush[2][5] = 2;
+                tPush[3][0] = 3;                                   tPush[3][3] = 3; tPush[3][4] = 2;tPush[3][5] = 1;
+                tPush[4][0] = 2;                                                    tPush[4][4] = 3;tPush[4][5] = 1;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 3;
+                tPush[11][11] = 3;
+                tPush[12][12] = 2;
+                mv.setCurrPush(tPush);
+            }
+            else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 2;tPush[0][5] = 1; tPush[0][6] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 3;
+                tPush[2][0] = 3; tPush[2][0] = 2; tPush[2][2] = 3; tPush[2][3] = 3; tPush[2][4] = 2;
+                tPush[3][0] = 3;                                   tPush[3][3] = 3; tPush[3][4] = 2;
+                tPush[4][0] = 1;                                                    tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 2;
+                tPush[9][9] = 2;
+                tPush[10][10] = 2;
+                tPush[11][11] = 2;
+                tPush[12][12] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 26) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 2;
+                tPush[2][0] = 3;                  tPush[2][2] = 3; tPush[2][3] = 2; tPush[2][4] = 1;
+                tPush[3][0] = 2;                                   tPush[3][3] = 3; tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
                 tPush[7][7] = 1;
                 tPush[8][8] = 1;
                 tPush[9][9] = 1;
@@ -847,46 +924,34 @@ public class MainActivity extends AppCompatActivity {
                 tPush[11][11] = 1;
                 tPush[12][12] = 1;
                 mv.setCurrPush(tPush);
-                mv.setCurrPrc(-1);
-                mv.setCurrDiff(tNull);
             }
-            else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                tPush[3][0] = 1;                                   tPush[3][3] = 1; tPush[3][4] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
+            else if (tCurrStake < 31) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 2; tPush[0][4] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 2; tPush[1][4] = 1;
+                tPush[2][0] = 3;                  tPush[2][2] = 3; tPush[2][3] = 1; tPush[2][4] = 1;
+                tPush[3][0] = 1;                                   tPush[3][3] = 3;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
                 tPush[6][6] = 1;
                 tPush[7][7] = 1;
-                tPush[8][8] = 1;
-                tPush[9][9] = 1;
-                tPush[10][10] = 1;
-                tPush[11][11] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                tPush[3][0] = 1;                                   tPush[3][3] = 1;
-                tPush[4][4] = 1;
+            else if (tCurrStake < 41) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 2; tPush[0][3] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 1; tPush[1][3] = 1;
+                tPush[2][0] = 1;                  tPush[2][2] = 3;
+                                                                  tPush[3][3] = 3;
+                tPush[4][4] = 2;
                 tPush[5][5] = 1;
-                tPush[6][6] = 1;
-                tPush[7][7] = 1;
-                tPush[8][8] = 1;
-                tPush[9][9] = 1;
-                tPush[10][10] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if (tCurrStake > 22) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1;
-                tPush[3][0] = 1;                                   tPush[3][3] = 1;
+            else if (tCurrStake < 51) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3;
+                         tPush[2][2] = 3;
+                         tPush[3][3] = 2;
                 tPush[4][4] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
+
                 mv.setCurrPush(tPush);
             }
         }
@@ -922,47 +987,91 @@ public class MainActivity extends AppCompatActivity {
             }
 
             mv.setCurrDiff(tDiff);
-
-            if (tCurrStake <= 12) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                tPush[3][0] = 1;                                   tPush[3][3] = 1; tPush[3][4] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
-                tPush[7][7] = 1;
-                tPush[8][8] = 1;
+            if (tCurrStake <= 5) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 3;tPush[0][5] = 3;tPush[0][6] = 3;tPush[0][7] = 2;tPush[0][8] = 2;tPush[0][9] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 2;
+                tPush[2][0] = 3; tPush[2][1] = 2; tPush[2][2] = 3;tPush[2][3] = 2;
+                tPush[3][0] = 3;                                  tPush[3][3] = 3;
+                tPush[4][0] = 3;                                                  tPush[4][4] = 3;
+                tPush[5][0] = 2;                                                          tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 2;
+                tPush[11][11] = 2;
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if (tCurrStake <= 12) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 3;tPush[0][5] = 3;tPush[0][6] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 3;tPush[1][5] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 3; tPush[2][2] = 3;tPush[2][3] = 3;tPush[2][4] = 2;
+                tPush[3][0] = 3;                                  tPush[3][3] = 3;tPush[3][4] = 2;
+                tPush[4][0] = 3;                                                  tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 2;
+                tPush[11][11] = 1;
+                tPush[12][12] = 1;
                 mv.setCurrPush(tPush);
                 mv.setCurrPrc(-1);
                 mv.setCurrDiff(tNull);
             }
             else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 3;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 3;
+                tPush[2][0] = 3; tPush[2][1] = 1; tPush[2][2] = 3;tPush[2][3] = 3;tPush[2][4] = 1;
+                tPush[3][0] = 3;                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 2;
+                tPush[9][9] = 1;
                 mv.setCurrPush(tPush);
             }
             else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;tPush[1][3] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;tPush[2][3] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 2;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;tPush[2][3] = 3;tPush[2][4] = 1;
+                tPush[3][0] = 1;                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 26) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 2;tPush[1][4] = 1;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;tPush[2][3] = 1;
+                tPush[3][3] = 3;
+                tPush[4][4] = 3;
+                tPush[5][5] = 2;
+                tPush[6][6] = 1;
+                mv.setCurrPush(tPush);
+            }
+
+
+            else if (tCurrStake < 31) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 2;tPush[1][3] = 1;
+                tPush[2][0] = 1;                  tPush[2][2] = 3;
+                tPush[3][3] = 3;
+                tPush[4][4] = 3;
                 tPush[5][5] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if (tCurrStake > 22) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;
+            else if (tCurrStake < 51) {
+                tPush[0][0] = 3; tPush[0][1] = 3;
+                tPush[1][0] = 2; tPush[1][1] = 3;
+                tPush[2][2] = 3;
                 tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
                 mv.setCurrPush(tPush);
             }
         }
@@ -998,42 +1107,82 @@ public class MainActivity extends AppCompatActivity {
 
             mv.setCurrDiff(tDiff);
 
-
-            if (tCurrStake <= 12) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
+            if (tCurrStake <= 5) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 3;tPush[0][5] = 3;tPush[0][6] = 1;tPush[0][7] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 2;tPush[1][4] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 1; tPush[2][2] = 3;tPush[2][3] = 1;
+                tPush[3][0] = 3;                                  tPush[3][3] = 3;
+                tPush[4][0] = 3;                                                  tPush[4][4] = 3;
+                tPush[5][0] = 1;                                                                  tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 1;
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if (tCurrStake <= 12) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 3;tPush[0][5] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 2;tPush[1][5] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 2; tPush[2][2] = 3;tPush[2][3] = 2;tPush[2][4] = 1;
+                tPush[3][0] = 3;                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][0] = 1;                                                  tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 3;
+                tPush[10][10] = 1;
                 mv.setCurrPush(tPush);
                 mv.setCurrPrc(-1);
                 mv.setCurrDiff(tNull);
             }
             else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 2;tPush[0][4] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 2;tPush[1][3] = 2;tPush[1][4] = 2;
+                tPush[2][0] = 2; tPush[2][1] = 1; tPush[2][2] = 3;tPush[2][3] = 2;tPush[2][4] = 1;
+                tPush[3][0] = 1;                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 2;
+                tPush[6][6] = 2;
+                tPush[7][7] = 2;
+                tPush[8][8] = 1;
+                tPush[9][9] = 1;
                 mv.setCurrPush(tPush);
             }
             else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;
-                tPush[3][3] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 2;tPush[1][3] = 2;tPush[1][4] = 1;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;tPush[2][3] = 1;tPush[2][4] = 1;
+                                                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 26) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 1; tPush[1][4] = 1;
+                tPush[2][0] = 2;                  tPush[2][2] = 3;
+                tPush[3][3] = 3;
+                tPush[4][4] = 3;
+                tPush[5][5] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 31) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 1;tPush[1][3] = 1;
+                tPush[2][0] = 1; tPush[2][2] = 3;
+                tPush[3][3] = 3;
                 tPush[4][4] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if (tCurrStake > 22) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
+            else if (tCurrStake < 51) {
+                tPush[0][0] = 3; tPush[0][1] = 2;
+                tPush[1][0] = 2; tPush[1][1] = 3;
                 tPush[2][2] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
                 mv.setCurrPush(tPush);
             }
         }
@@ -1057,40 +1206,78 @@ public class MainActivity extends AppCompatActivity {
                 tDiff[5][0]=1;
             }
             mv.setCurrDiff(tDiff);
-
-            if (tCurrStake <= 12) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
-                tPush[6][6] = 1;
+            if (tCurrStake <= 5) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 2;tPush[0][5] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 1; tPush[2][2] = 3;
+                tPush[3][0] = 2;                                   tPush[3][3] = 3;
+                tPush[4][0] = 1; tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 1;
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if (tCurrStake <= 12) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 1;
+                tPush[2][0] = 3; tPush[2][1] = 1; tPush[2][2] = 3; tPush[2][3] = 3; tPush[2][4] = 1;
+                tPush[3][0] = 1;                                   tPush[3][3] = 3; tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 3;
+                tPush[8][8] = 3;
+                tPush[9][9] = 1;
                 mv.setCurrPush(tPush);
                 mv.setCurrPrc(-1);
                 mv.setCurrDiff(tNull);
             }
             else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;tPush[1][3] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 3;tPush[0][4] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 3;tPush[1][4] = 2;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;tPush[2][3] = 2;tPush[2][4] = 1;
+                tPush[3][0] = 1;                                  tPush[3][3] = 3;tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 2;
+                tPush[7][7] = 1;
                 mv.setCurrPush(tPush);
             }
             else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
-                tPush[2][2] = 1;
-                tPush[3][3] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 1;tPush[1][4] = 1;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;tPush[2][3] = 1;
+                tPush[3][3] = 3;
+                tPush[4][4] = 3;
+                tPush[5][5] = 1;
+                tPush[6][6] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 26) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][2] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][2] = 1;
+                tPush[2][0] = 1;                  tPush[2][2] = 3;
+                tPush[3][3] = 3;
+                tPush[4][4] = 1;
+                tPush[5][5] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 31) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 1;
+                                                  tPush[2][2] = 3;
+                tPush[3][3] = 3;
                 tPush[4][4] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if (tCurrStake > 22) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1;
+            else if (tCurrStake < 51) {
+                tPush[0][0] = 3; tPush[0][1] = 2;
+                tPush[1][0] = 2; tPush[1][1] = 3;
                 tPush[2][2] = 1;
-                tPush[3][3] = 1;
                 mv.setCurrPush(tPush);
             }
         }
@@ -1114,38 +1301,79 @@ public class MainActivity extends AppCompatActivity {
             }
             mv.setCurrDiff(tDiff);
 
-            if (tCurrStake <= 12) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1;
-                tPush[2][0] = 1;                  tPush[2][2] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
-                tPush[5][5] = 1;
+            if (tCurrStake <= 5) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 2; tPush[0][5] = 1;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 2;
+                tPush[2][0] = 3;                  tPush[2][2] = 3;
+                tPush[3][0] = 2;                                   tPush[3][3] = 3;
+                tPush[4][0] = 1;                                                   tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 2;
+                tPush[8][8] = 2;
+                tPush[9][9] = 1;
+
+                mv.setCurrPush(tPush);
+                mv.setCurrPrc(-1);
+                mv.setCurrDiff(tNull);
+            }
+            else if (tCurrStake <= 12) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3; tPush[0][3] = 3; tPush[0][4] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3; tPush[1][3] = 3; tPush[1][4] = 2;
+                tPush[2][0] = 3; tPush[2][1] = 2; tPush[2][2] = 3; tPush[2][3] = 1; tPush[2][4] = 1;
+                tPush[3][0] = 2;                                   tPush[3][3] = 3; tPush[3][4] = 1;
+                tPush[4][4] = 3;
+                tPush[5][5] = 3;
+                tPush[6][6] = 3;
+                tPush[7][7] = 2;
+                tPush[8][8] = 2;
+                tPush[9][9] = 2;
 
                 mv.setCurrPush(tPush);
                 mv.setCurrPrc(-1);
                 mv.setCurrDiff(tNull);
             }
             else if ((tCurrStake > 12)&&(tCurrStake < 18))  {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
-                tPush[2][2] = 1;
-                tPush[3][3] = 1;
-                tPush[4][4] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;tPush[0][3] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 2;
+                tPush[2][0] = 2;                  tPush[2][2] = 3;tPush[2][3] = 1;
+                tPush[3][3] = 3;
+                tPush[4][4] = 3;
+                tPush[5][5] = 2;
+                tPush[6][6] = 1;
+                tPush[7][7] = 1;
                 mv.setCurrPush(tPush);
             }
             else if ((tCurrStake > 17)&&(tCurrStake < 23)) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1;
-                tPush[2][2] = 1;
-                tPush[3][3] = 1;
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 3;tPush[1][3] = 1;
+                tPush[2][0] = 1;                  tPush[2][2] = 3;
+                tPush[3][3] = 3;
+                tPush[4][4] = 2;
+                tPush[5][5] = 2;
+                tPush[6][6] = 1;
                 mv.setCurrPush(tPush);
             }
-            else if (tCurrStake > 22) {
-                tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;
-                tPush[1][0] = 1; tPush[1][1] = 1;
-                tPush[2][2] = 1;
-                tPush[3][3] = 1;
+            else if (tCurrStake < 26) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 3;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 1; tPush[1][3] = 1;
+                tPush[2][2] = 3;
+                tPush[3][3] = 3;
+                tPush[4][4] = 2;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 31) {
+                tPush[0][0] = 3; tPush[0][1] = 3; tPush[0][2] = 2;
+                tPush[1][0] = 3; tPush[1][1] = 3; tPush[1][2] = 1;
+                tPush[2][2] = 3;
+                tPush[3][3] = 2;
+                tPush[4][4] = 1;
+                mv.setCurrPush(tPush);
+            }
+            else if (tCurrStake < 51) {
+                tPush[0][0] = 3; tPush[0][1] = 3;
+                tPush[1][0] = 3; tPush[1][1] = 3;
+                tPush[2][2] = 2;
                 mv.setCurrPush(tPush);
             }
         }
@@ -1394,20 +1622,6 @@ public class MainActivity extends AppCompatActivity {
                 mv.setCurrPrc(-1);
             }
         else if (stakeSz.equals("10 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1; tPush[0][5] = 1;tPush[0][6] = 1; tPush[0][7] = 1; tPush[0][8] = 1;tPush[0][9] = 1; tPush[0][10] = 1; tPush[0][11] = 1;tPush[0][12] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1; tPush[1][5] = 1;tPush[1][6] = 1; tPush[1][7] = 1; tPush[1][8] = 1;tPush[1][9] = 1; tPush[1][10] = 1; tPush[1][11] = 1;tPush[1][12] = 1;
-                    tPush[2][0] = 1; tPush[2][1] = 1; tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1; tPush[2][5] = 1;tPush[2][6] = 1; tPush[2][7] = 1; tPush[2][8] = 1;tPush[2][9] = 1; tPush[2][10] = 1; tPush[2][11] = 1;tPush[2][12] = 1;
-                    tPush[3][0] = 1; tPush[3][1] = 1; tPush[3][2] = 1; tPush[3][3] = 1; tPush[3][4] = 1; tPush[3][5] = 1;tPush[3][6] = 1; tPush[3][7] = 1; tPush[3][8] = 1;tPush[3][9] = 1; tPush[3][10] = 1; tPush[3][11] = 1;
-                    tPush[4][0] = 1; tPush[4][1] = 1; tPush[4][2] = 1; tPush[4][3] = 1; tPush[4][4] = 1; tPush[4][5] = 1;tPush[4][6] = 1; tPush[4][7] = 1; tPush[4][8] = 1;tPush[4][9] = 1; tPush[4][10] = 1;
-                    tPush[5][0] = 1; tPush[5][1] = 1; tPush[5][2] = 1; tPush[5][3] = 1; tPush[5][4] = 1; tPush[5][5] = 1;tPush[5][6] = 1; tPush[5][7] = 1; tPush[5][8] = 1;tPush[5][9] = 1;
-                    tPush[6][0] = 1; tPush[6][1] = 1; tPush[6][2] = 1; tPush[6][3] = 1; tPush[6][4] = 1; tPush[6][5] = 1;tPush[6][6] = 1; tPush[6][7] = 1; tPush[6][8] = 1;tPush[6][9] = 1;
-                    tPush[7][0] = 1; tPush[7][1] = 1; tPush[7][2] = 1;                                   tPush[7][5] = 1;tPush[7][6] = 1; tPush[7][7] = 1; tPush[7][8] = 1;tPush[7][9] = 1; tPush[7][10] = 1;
-                    tPush[8][0] = 1; tPush[8][1] = 1; tPush[8][2] = 1;                                                                    tPush[8][7] = 1; tPush[8][8] = 1;tPush[8][9] = 1; tPush[8][10] = 1;
-                    tPush[9][0] = 1; tPush[9][1] = 1;                                                                                                                      tPush[9][9] = 1; tPush[9][10] = 1; tPush[9][11] = 1;
-                    tPush[10][0] = 1;tPush[10][1]= 1;                                                                                                                                       tPush[10][10]= 1;
-                    tPush[11][0] = 1;tPush[11][1]= 1;                                                                                                                                                         tPush[11][11] = 1;
-                    tPush[12][0] = 1;tPush[12][1]= 1;                                                                                                                                                                          tPush[12][12] = 1;
-                    mv.setCurrPush(tPush);*/
             int[][] tPush2 = new int[][] {
                     {3,3,3,3,3,3,3,3,3,3,3,3,3},
                     {3,3,3,3,3,3,3,3,3,3,3,3,3},
@@ -1436,7 +1650,7 @@ public class MainActivity extends AppCompatActivity {
                     {3,3,3,2,3,2,2,2,1,-1,-1,-1,-1},
                     {3,3,3,2,2,3,2,2,1,-1,-1,-1,0},
                     {3,3,2,2,1,1,3,2,1,-1,-1,0,0},
-                    {3,3,2,-1,-1,-1,3,3,2,1,-1,0,0},
+                    {3,3,2,-1,-1,-1,-1,3,2,1,-1,0,0},
                     {3,3,1,-1,0,-1,-1,-1,3,1,-1,-1,0},
                     {3,2,1,-1,0,0,0,0,-1,3,1,-1,0},
                     {3,2,1,0,0,0,0,0,0,0,3,-1,0},
@@ -1508,31 +1722,17 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
         }
         else if (stakeSz.equals("15 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1; tPush[0][5] = 1;tPush[0][6] = 1; tPush[0][7] = 1; tPush[0][8] = 1;tPush[0][9] = 1; tPush[0][10] = 1; tPush[0][11] = 1;tPush[0][12] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1; tPush[1][5] = 1;tPush[1][6] = 1; tPush[1][7] = 1; tPush[1][8] = 1;tPush[1][9] = 1; tPush[1][10] = 1; tPush[1][11] = 1;tPush[1][12] = 1;
-                    tPush[2][0] = 1; tPush[2][1] = 1; tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1; tPush[2][5] = 1;tPush[2][6] = 1; tPush[2][7] = 1; tPush[2][8] = 1;tPush[2][9] = 1;
-                    tPush[3][0] = 1; tPush[3][1] = 1; tPush[3][2] = 1; tPush[3][3] = 1; tPush[3][4] = 1; tPush[3][5] = 1;tPush[3][6] = 1; tPush[3][7] = 1;
-                    tPush[4][0] = 1; tPush[4][1] = 1; tPush[4][2] = 1; tPush[4][3] = 1; tPush[4][4] = 1; tPush[4][5] = 1;tPush[4][6] = 1; tPush[4][7] = 1;tPush[4][8] = 1;
-                    tPush[5][0] = 1; tPush[5][1] = 1; tPush[5][2] = 1; tPush[5][3] = 1; tPush[5][4] = 1; tPush[5][5] = 1;tPush[5][6] = 1; tPush[5][7] = 1;tPush[5][8] = 1;
-                    tPush[6][0] = 1; tPush[6][1] = 1;                                                                    tPush[6][6] = 1; tPush[6][7] = 1;tPush[6][8] = 1;
-                    tPush[7][0] = 1; tPush[7][1] = 1;                                                                                     tPush[7][7] = 1;tPush[7][8] = 1;tPush[7][9] = 1;
-                    tPush[8][0] = 1; tPush[8][1] = 1;                                                                                                     tPush[8][8] = 1;tPush[8][9] = 1;
-                    tPush[9][0] = 1;                                                                                                                                      tPush[9][9] = 1; tPush[9][10] = 1;
-                    tPush[10][0] = 1;                                                                                                                                                      tPush[10][10] = 1;
-                    tPush[11][0] = 1;                                                                                                                                                                        tPush[11][11] = 1;
-                    tPush[12][0] = 1;                                                                                                                                                                                          tPush[12][12] = 1;
-                    mv.setCurrPush(tPush);*/
             int[][] tPush2 = new int[][] {
-                    {3,3,3,3,3,3,3,3,3,3,3,3,3},
-                    {3,3,3,3,3,3,3,2,2,2,2,2,2},
-                    {3,3,3,3,3,2,2,1,1,1,1,1,1},
-                    {3,3,2,3,2,2,1,1,-1,-1,-1,-1,-1},
-                    {3,3,2,2,3,2,1,1,1,-1,-1,0,0},
-                    {3,3,2,1,1,3,1,1,1,-1,0,0,0},
-                    {3,2,1,-1,-1,-1,3,1,1,-1,-1,0,0},
-                    {3,2,-1,-1,-1,-1,-1,3,1,1,-1,0,0},
+                    {3,3, 3,3,3,3,3,3,3,3,3,3,3},
+                    {3,3, 3,3,3,3,3,2,2,2,2,2,2},
+                    {3,3, 3,3,3,2,2,1,1,1,1,1,-1},
+                    {3,3, 2,3,2,2,1,1,-1,-1,-1,-1,-1},
+                    {3,3, 2,2,3,2,1,1,-1,-1,-1,0,0},
+                    {3,3, 2,1,1,3,1,1,-1,-1,0,0,0},
+                    {3,2, 1,-1,-1,-1,3,1,1,-1,-1,0,0},
+                    {3,2,-1,-1,-1,-1,-1,3,1,-1,-1,0,0},
                     {3,2,-1,0,0,0,-1,-1,3,1,-1,-1,0},
-                    {3,2,-1,0,0,0,0,0,0,3,1,-1,0},
+                    {3,2,-1,0,0,0,0,0,0,3,-1,-1,0},
                     {3,1,0,0,0,0,0,0,0,0,3,0,0},
                     {3,1,0,0,0,0,0,0,0,0,0,3,0},
                     {3,1,0,0,0,0,0,0,0,0,0,0,3},
@@ -1722,11 +1922,11 @@ public class MainActivity extends AppCompatActivity {
             tDiff[8][10]=1;
         }
         else{
-            tDiff[1][11]=1; tDiff[1][12]=1;
-            tDiff[2][10]=1; tDiff[2][11]=1; tDiff[2][12]=1;
-            tDiff[3][9]=1; tDiff[3][10]=1; tDiff[3][11]=1;
+            tDiff[1][12]=1;
+            tDiff[2][9]=1; tDiff[2][10]=1; tDiff[2][11]=1; tDiff[2][12]=1; //Q
+            tDiff[3][8]=1; tDiff[3][9]=1; tDiff[3][10]=1; tDiff[3][11]=1;
             tDiff[4][8]=1;tDiff[4][9]=1;tDiff[4][10]=1;
-            tDiff[5][9]=1;
+            tDiff[5][3]=1; tDiff[5][8]=1;tDiff[5][9]=1;
             tDiff[6][2]=1;tDiff[6][3]=1;tDiff[6][4]=1;tDiff[6][5]=1; tDiff[6][9]=1;
             tDiff[7][1]=1; tDiff[7][9]=1;
             tDiff[8][9]=1;
@@ -1748,7 +1948,7 @@ public class MainActivity extends AppCompatActivity {
                     {3,3,2,2,2,2,2,2,2,3,2,2,1},
                     {3,3,2,2,2,1,1,-1,1,1,3,2,-1},
                     {3,3,2,2,2,-1,0,0,0,0,0,3,0},
-                    {1,3,2,2,2,-1,0,0,0,0,0,0,3},
+                    {3,3,2,2,2,-1,0,0,0,0,0,0,3},
             };
             mv.setCurrPush(tPush2);
             mv.setCurrDiff(tNull);
@@ -2010,35 +2210,21 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
         }
         else if (stakeSz.equals("15 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1; tPush[0][5] = 1;tPush[0][6] = 1; tPush[0][7] = 1; tPush[0][8] = 1;tPush[0][9] = 1; tPush[0][10] = 1; tPush[0][11] = 1;tPush[0][12] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1; tPush[1][5] = 1;
-                    tPush[2][0] = 1; tPush[2][1] = 1; tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1; tPush[2][5] = 1;
-                    tPush[3][0] = 1; tPush[3][1] = 1;                  tPush[3][3] = 1; tPush[3][4] = 1; tPush[3][5] = 1;
-                    tPush[4][0] = 1;                                                    tPush[4][4] = 1; tPush[4][5] = 1;
-                    tPush[5][0] = 1;                                                                     tPush[5][5] = 1;tPush[5][6] = 1;
-                    tPush[6][0] = 1;                                                                                     tPush[6][6] = 1;
-                    tPush[7][0] = 1;                                                                                                     tPush[7][7] = 1;
-                    tPush[8][0] = 1;                                                                                                                     tPush[8][8] = 1;
-                    tPush[9][0] = 1;         tPush[9][9] = 1;
-                    tPush[10][0] = 1;          tPush[10][10] = 1;
-                    tPush[11][0] = 1;            tPush[11][11] = 1;
-                                                   tPush[12][12] = 1;
-                    mv.setCurrPush(tPush);*/
 
             int[][] tPush2 = new int[][] {
-                    {3,3,3,3,3,3,3,2,2,2,2,2,2},
-                    {3,3,3,2,2,1,1,1,-1,-1,-1,0,0},
-                    {3,2,3,2,1,1,-1,-1,-1,0,0,0,0},
-                    {3,2,1,3,1,1,-1,-1,0,0,0,0,0},
-                    {3,1,-1,-1,3,1,1,-1,0,0,0,0,0},
-                    {3,-1,0,0,-1,3,1,-1,-1,0,0,0,0},
-                    {2,0,0,0,0,0,3,1,-1,0,0,0,0},
-                    {2,0,0,0,0,0,0,3,-1,-1,0,0,0},
-                    {2,0,0,0,0,0,0,0,3,-1,0,0,0},
-                    {2,0,0,0,0,0,0,0,0,3,-1,0,0},
-                    {1,0,0,0,0,0,0,0,0,0,3,0,0},
-                    {1,0,0,0,0,0,0,0,0,0,0,2,0},
-                    {1,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {3, 3, 3, 3, 3,3, 3, 2, 2, 2, 2,2,2},
+                    {3, 3, 3, 2, 2,1, 1,-1,-1,-1,-1,0,0},
+                    {3, 2, 3, 2, 1,1,-1,-1,-1, 0, 0,0,0},
+                    {3, 2, 1, 3, 1,1,-1,-1, 0, 0, 0,0,0},
+                    {3, 1,-1,-1, 3,1,-1,-1, 0, 0, 0,0,0},
+                    {3,-1, 0, 0,-1,3, 1,-1,-1, 0, 0,0,0},
+                    {2, 0, 0, 0, 0,0, 3,-1,-1, 0, 0,0,0},
+                    {2, 0, 0, 0, 0,0, 0, 3,-1,-1, 0,0,0},
+                    {2, 0, 0, 0, 0,0, 0, 0, 3,-1, 0,0,0},
+                    {2, 0, 0, 0, 0,0, 0, 0, 0, 3,-1,0,0},
+                    {1, 0, 0, 0, 0,0, 0, 0, 0, 0, 3,0,0},
+                    {1, 0, 0, 0, 0,0, 0, 0, 0, 0, 0,2,0},
+                    {1, 0, 0, 0, 0,0, 0, 0, 0, 0, 0,0,2},
             };
             mv.setCurrPush(tPush2);
         }
@@ -2207,20 +2393,19 @@ public class MainActivity extends AppCompatActivity {
         mv.setCurrChart(2); //to 2 players
         mv.setCurrPrc(m_currPD[2][3]);
 
-
         tDiff[3][7]=1;
         tDiff[4][7]=1;
         tDiff[5][6]=1;tDiff[5][7]=1;
         tDiff[6][1]=1; tDiff[6][7]=1;
 
-
-
         tDiff[11][11]=1;//33
         tDiff[12][12]=1;//22
         if ((stakeSz.equals("40 BB"))||(stakeSz.equals("50 BB"))||(stakeSz.equals("100 BB"))) {
             tDiff[1][10]=1;tDiff[1][11]=1;tDiff[1][12]=1;
-            tDiff[2][8]=1;tDiff[2][9]=1;tDiff[2][10]=1;
-            tDiff[3][8]=1;
+            tDiff[2][7]=1; tDiff[2][8]=1;tDiff[2][9]=1;tDiff[2][10]=1;
+            tDiff[3][7]=1;tDiff[3][8]=1;
+            tDiff[4][7]=1;
+            tDiff[5][7]=1;
             tDiff[6][8]=1;
             tDiff[7][8]=1;
             tDiff[8][9]=1;
@@ -2229,6 +2414,11 @@ public class MainActivity extends AppCompatActivity {
             tDiff[10][0]=1;
         }
         else{
+            tDiff[1][9]=1;
+            tDiff[2][7]=1;
+            tDiff[3][7]=0;
+            tDiff[4][7]=0;
+            tDiff[5][7]=0;
             tDiff[5][2]=1;
         }
         mv.setCurrDiff(tDiff);
@@ -2508,34 +2698,20 @@ public class MainActivity extends AppCompatActivity {
                     mv.setCurrPrc(-1);
                 }
         else if (stakeSz.equals("15 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1; tPush[0][5] = 1;tPush[0][6] = 1; tPush[0][7] = 1;                tPush[0][9] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                    tPush[2][0] = 1; tPush[2][1] = 1; tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                    tPush[3][0] = 1;                                   tPush[3][3] = 1; tPush[3][4] = 1;
-                    tPush[4][0] = 1;                                                    tPush[4][4] = 1;
-                                                                                                        tPush[5][5] = 1;
-                                                                                                                        tPush[6][6] = 1;
-                                                   tPush[7][7] = 1;
-                                                        tPush[8][8] = 1;
-                                                             tPush[9][9] = 1;
-                                                                  tPush[10][10] = 1;
-                                                                     tPush[11][11] = 1;
-                                                                           tPush[12][12] = 1;
-                    mv.setCurrPush(tPush);*/
             int[][] tPush2 = new int[][] {
-                    {3,3,3,3,3,2,2,2,1,1,1,1,1},
-                    {3,3,2,2,1,-1,-1,-1,0,0,0,0,0},
-                    {3,2,3,1,1,-1,-1,0,0,0,0,0,0},
-                    {3,1,-1,3,1,1,-1,0,0,0,0,0,0},
-                    {3,-1,-1,-1,3,1,-1,0,0,0,0,0,0},
-                    {2,0,0,0,0,3,-1,-1,0,0,0,0,0},
-                    {1,0,0,0,0,0,3,-1,0,0,0,0,0},
-                    {1,0,0,0,0,0,0,3,-1,0,0,0,0},
-                    {-1,0,0,0,0,0,0,0,3,0,0,0,0},
-                    {-1,0,0,0,0,0,0,0,0,2,0,0,0},
-                    {-1,0,0,0,0,0,0,0,0,0,2,0,0},
-                    {-1,0,0,0,0,0,0,0,0,0,0,1,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,1},
+                    { 3, 3, 3, 3,3, 2, 2, 2, 1,1,1,1,1},
+                    { 3, 3, 2, 2,1,-1,-1,-1, 0,0,0,0,0},
+                    { 3, 2, 3, 1,1,-1,-1, 0, 0,0,0,0,0},
+                    { 3, 1,-1, 3,1,-1,-1, 0, 0,0,0,0,0},
+                    { 3,-1,-1,-1,3,-1,-1, 0, 0,0,0,0,0},
+                    { 2, 0, 0, 0,0, 3,-1,-1, 0,0,0,0,0},
+                    { 1, 0, 0, 0,0, 0, 3,-1, 0,0,0,0,0},
+                    { 1, 0, 0, 0,0, 0, 0, 3,-1,0,0,0,0},
+                    {-1, 0, 0, 0,0, 0, 0, 0, 3,0,0,0,0},
+                    {-1, 0, 0, 0,0, 0, 0, 0, 0,2,0,0,0},
+                    {-1, 0, 0, 0,0, 0, 0, 0, 0,0,2,0,0},
+                    {-1, 0, 0, 0,0, 0, 0, 0, 0,0,0,1,0},
+                    { 0, 0, 0, 0,0, 0, 0, 0, 0,0,0,0,1},
             };
             mv.setCurrPush(tPush2);
         }
@@ -2694,13 +2870,16 @@ public class MainActivity extends AppCompatActivity {
 
         mv.setCurrChart(2); //to 2 players
         mv.setCurrPrc(m_currPD[2][4]);
-        tDiff[1][8] = 1;tDiff[1][9] = 1;
-        tDiff[3][6] = 1;
-        tDiff[4][6] = 1;
-        tDiff[5][1]=1; tDiff[5][6] = 1;tDiff[5][7] = 1;
-        tDiff[6][7] = 1;
+        //tDiff[1][8] = 1;tDiff[1][9] = 1;
+        tDiff[2][6] = 1;
+        //tDiff[3][6] = 1;
+        //tDiff[4][6] = 1;
+        tDiff[4][2] = 1;tDiff[4][3] = 1;
+        tDiff[5][1]=1; /*tDiff[5][6] = 1;tDiff[5][7] = 1;*/
+        //tDiff[6][7] = 1;
 
         //tDiff[9][9]=1;//55 not shark
+        tDiff[10][10]=1; //44
 
         if ((stakeSz.equals("40 BB"))||(stakeSz.equals("50 BB"))||(stakeSz.equals("100 BB"))) {
             tDiff[1][10] = 1;
@@ -2713,7 +2892,7 @@ public class MainActivity extends AppCompatActivity {
             tDiff[12][12] = 1;
         }
         else{
-
+            tDiff[7][0] = 1;
         }
         mv.setCurrDiff(tDiff);
         if (stakeSz.equals("2 BB")) { // 0
@@ -2991,30 +3170,21 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
         }
         else if (stakeSz.equals("15 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1; tPush[1][4] = 1;
-                    tPush[2][0] = 1;                  tPush[2][2] = 1; tPush[2][3] = 1; tPush[2][4] = 1;
-                    tPush[3][0] = 1;                                   tPush[3][3] = 1;
-                                                                                        tPush[4][4] = 1;
-                                                                                                      tPush[5][5] = 1;
-                                                                                                                    tPush[6][6] = 1;
-                                                                                                                                  tPush[7][7] = 1;
-                    mv.setCurrPush(tPush);*/
 
             int[][] tPush2 = new int[][] {
-                    {3,3,3,3,2,2,1,1,1,1,1,-1,-1},
-                    {3,3,2,1,1,-1,-1,0,0,0,0,0,0},
-                    {3,1,3,1,1,-1,-1,0,0,0,0,0,0},
-                    {3,-1,-1,3,1,-1,-1,0,0,0,0,0,0},
-                    {2,0,0,-1,3,-1,-1,0,0,0,0,0,0},
-                    {1,0,0,0,0,3,-1,0,0,0,0,0,0},
-                    {-1,0,0,0,0,0,3,-1,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,3,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,2,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,2,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,1,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,1,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,-1},
+                    { 3, 3, 3, 3,2, 2, 1, 1,-1,1,-1,-1,-1},
+                    { 3, 3, 2, 1,1,-1,-1, 0,0,0,0,0,0},
+                    { 3, 1, 3, 1,1,-1,-1, 0,0,0,0,0,0},
+                    { 3,-1,-1, 3,1,-1,-1, 0,0,0,0,0,0},
+                    { 2, 0, 0,-1,3,-1,-1, 0,0,0,0,0,0},
+                    { 1, 0, 0, 0,0, 3,-1, 0,0,0,0,0,0},
+                    {-1, 0, 0, 0,0, 0, 3,-1,0,0,0,0,0},
+                    { 0, 0, 0, 0,0, 0, 0, 3,0,0,0,0,0},
+                    { 0, 0, 0, 0,0, 0, 0, 0,2,0,0,0,0},
+                    { 0, 0, 0, 0,0, 0, 0, 0,0,2,0,0,0},
+                    { 0, 0, 0, 0,0, 0, 0, 0,0,0,1,0,0},
+                    { 0, 0, 0, 0,0, 0, 0, 0,0,0,0,1,0},
+                    { 0, 0, 0, 0,0, 0, 0,0, 0,0,0,0,-1},
             };
             mv.setCurrPush(tPush2);
         }
@@ -3170,10 +3340,10 @@ public class MainActivity extends AppCompatActivity {
         mv.setCurrChart(3); //to 3 players
         mv.setCurrPrc(m_currPD[2][5]);
 
-        tDiff[2][6]=1;
-        tDiff[3][6]=1;
-        tDiff[4][2]=1;tDiff[4][3]=1;tDiff[4][6]=1;
-        tDiff[5][6]=1;
+        //tDiff[2][6]=1;
+        //tDiff[3][6]=1;
+        tDiff[4][2]=1;tDiff[4][3]=1;//tDiff[4][6]=1;
+        //tDiff[5][6]=1;
         tDiff[6][0]=1;
         tDiff[9][9]=1;//55
 
@@ -3186,6 +3356,9 @@ public class MainActivity extends AppCompatActivity {
             tDiff[10][10]=1;//44
         }
         else{
+            tDiff[1][7]=1;
+            tDiff[5][0]=1;
+            tDiff[4][1]=1;
 
         }
         mv.setCurrDiff(tDiff);
@@ -3463,31 +3636,20 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
         }
         else if (stakeSz.equals("15 BB")) {
-                   /* tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1; tPush[0][3] = 1; tPush[0][4] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1;
-                    tPush[2][0] = 1;                  tPush[2][2] = 1;
-                                                                       tPush[3][3] = 1;
-                               tPush[4][4] = 1;
-                                       tPush[5][5] = 1;
-                                               tPush[6][6] = 1;
-
-
-
-                    mv.setCurrPush(tPush);*/
             int[][] tPush2 = new int[][] {
-                    {3,3,3,2,1,-1,-1,0,0,-1,0,0,0},
-                    {3,3,1,1,1,-1,0,0,0,0,0,0,0},
-                    {2,-1,3,1,1,-1,0,0,0,0,0,0,0},
-                    {1,0,0,3,1,-1,0,0,0,0,0,0,0},
-                    {-1,0,0,0,3,-1,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,3,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,2,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,1,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,1,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,-1,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,-1,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,-1,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    { 3, 3,3,2, 1,-1,-1,0,0,-1,0,0,0},
+                    { 3, 3,1,1,-1,-1,0,0,0,0,0,0,0},
+                    { 2,-1,3,1,-1,-1,0,0,0,0,0,0,0},
+                    { 1, 0,0,3,-1,-1,0,0,0,0,0,0,0},
+                    {-1, 0,0,0, 3,-1,0,0,0,0,0,0,0},
+                    { 0,0,0,0,0,3,0,0,0,0,0,0,0},
+                    { 0,0,0,0,0,0,2,0,0,0,0,0,0},
+                    { 0,0,0,0,0,0,0,1,0,0,0,0,0},
+                    { 0,0,0,0,0,0,0,0,1,0,0,0,0},
+                    { 0,0,0,0,0,0,0,0,0,-1,0,0,0},
+                    { 0,0,0,0,0,0,0,0,0,0,-1,0,0},
+                    { 0,0,0,0,0,0,0,0,0,0,0,-1,0},
+                    { 0,0,0,0,0,0,0,0,0,0,0,0,0},
             };
             mv.setCurrPush(tPush2);
         }
@@ -3641,8 +3803,8 @@ public class MainActivity extends AppCompatActivity {
         mv.setCurrChart(4); //to 4 players
         mv.setCurrPrc(m_currPD[2][6]);
         tDiff[0][7]=1;tDiff[0][8]=1;tDiff[0][9]=1;tDiff[0][10]=1;
-        tDiff[1][6]=1;
-        tDiff[2][5]=1;tDiff[2][6]=1;
+        //tDiff[1][6]=1;
+        tDiff[2][5]=1;//tDiff[2][6]=1;
         tDiff[3][5]=1;
         tDiff[4][5]=1;
 
@@ -3657,8 +3819,9 @@ public class MainActivity extends AppCompatActivity {
             tDiff[9][9]=1;//55
         }
         else{
+        //    tDiff[0][11]=1;
             tDiff[3][2]=1;
-            tDiff[5][0]=1;
+            //tDiff[5][0]=1;
         }
 
 
@@ -3934,27 +4097,20 @@ public class MainActivity extends AppCompatActivity {
                     mv.setCurrPrc(-1);
                 }
         else if (stakeSz.equals("15 BB")) {
-                    /*tPush[0][0] = 1; tPush[0][1] = 1; tPush[0][2] = 1;tPush[0][3] = 1;
-                    tPush[1][0] = 1; tPush[1][1] = 1; tPush[1][2] = 1; tPush[1][3] = 1;
-                    tPush[2][0] = 1;                  tPush[2][2] = 1;
-                                                                      tPush[3][3] = 1;
-                                                                                    tPush[4][4] = 1;
-                                                                                                   tPush[5][5] = 1;
-                    mv.setCurrPush(tPush);*/
             int[][] tPush2 = new int[][] {
-                    {3,3,2,1,-1,-1,0,0,0,-1,0,0,0},
-                    {3,3,1,1,-1,0,0,0,0,0,0,0,0},
-                    {2,0,3,1,-1,0,0,0,0,0,0,0,0},
+                    { 3,3,2,1,-1,-1,0,0,0,-1,0,0,0},
+                    { 3,3,1,-1,-1,0,0,0,0,0,0,0,0},
+                    { 2,0,3,-1,-1,0,0,0,0,0,0,0,0},
                     {-1,0,0,3,-1,0,0,0,0,0,0,0,0},
-                    {0,0,0,0,3,0,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,2,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,1,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,-1,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,-1,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,-1,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
-                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    { 0,0,0,0, 3,0,0,0,0,0,0,0,0},
+                    { 0,0,0,0, 0,2,0,0,0,0,0,0,0},
+                    { 0,0,0,0, 0,0,1,0,0,0,0,0,0},
+                    { 0,0,0,0, 0,0,0,-1,0,0,0,0,0},
+                    { 0,0,0,0, 0,0,0,0,-1,0,0,0,0},
+                    { 0,0,0,0, 0,0,0,0,0,-1,0,0,0},
+                    { 0,0,0,0, 0,0,0,0,0,0,0,0,0},
+                    { 0,0,0,0, 0,0,0,0,0,0,0,0,0},
+                    { 0,0,0,0, 0,0,0,0,0,0,0,0,0},
             };
             mv.setCurrPush(tPush2);
         }
@@ -3980,7 +4136,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (stakeSz.equals("17 BB")) { // 0
                     int[][] tPush2 = new int[][] {
                             {3,3,2,-1,-1,0,0,0,0,-1,-1,0,0},
-                            {3,3,-1,-1,-1,0,0,0,0,0,0,0,0},
+                            {2,3,-1,-1,-1,0,0,0,0,0,0,0,0},
                             {1,0,3,-1,-1,0,0,0,0,0,0,0,0},
                             {0,0,0,3,-1,0,0,0,0,0,0,0,0},
                             {0,0,0,0,2,0,0,0,0,0,0,0,0},
@@ -3999,7 +4155,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (stakeSz.equals("18 BB")) { // 0
                     int[][] tPush2 = new int[][] {
                             {3,2,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                            {2,3,1,-1,-1,0,0,0,0,0,0,0,0},
+                            {2,3,-1,-1,-1,0,0,0,0,0,0,0,0},
                             {-1,-1,3,-1,-1,0,0,0,0,0,0,0,0},
                             {-1,-1,0,3,-1,0,0,0,0,0,0,0,0},
                             {-1,0,0,0,2,0,0,0,0,0,0,0,0},
@@ -4109,6 +4265,13 @@ public class MainActivity extends AppCompatActivity {
     protected void foldAction_8p(MyView mv, int[][] tDiff, int[][] tPush ,String  stakeSz, int[][] tNull) {
         mv.setCurrChart(4); //to 4 players
         mv.setCurrPrc(m_currPD[2][6]);
+
+        tDiff[0][7]=1;
+        tDiff[0][8]=1;
+        tDiff[0][9]=1;
+        tDiff[8][8]=1;
+        tDiff[3][1]=1;
+        tDiff[3][2]=1;
         mv.setCurrDiff(tDiff);
         if (stakeSz.equals("2 BB")) { // 0
             int[][] tPush2 = new int[][] {
@@ -4329,6 +4492,60 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPush(tPush2);
             mv.setCurrDiff(tNull);
             mv.setCurrPrc(-1);
+        }
+        else if (stakeSz.equals("13 BB")) { // 0
+            int[][] tPush2 = new int[][] {
+                    {3,3,3,3,0,0,0,0,0,0,0,0,0},
+                    {3,3,3,0,0,0,0,0,0,0,0,0,0},
+                    {3,0,3,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,3,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,3,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,3,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+            };
+            mv.setCurrPush(tPush2);
+        }
+        else if (stakeSz.equals("14 BB")) { // 0
+            int[][] tPush2 = new int[][] {
+                    {3,3,3,3,0,0,0,0,0,0,0,0,0},
+                    {3,3,0,0,0,0,0,0,0,0,0,0,0},
+                    {3,0,3,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,3,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,3,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+            };
+            mv.setCurrPush(tPush2);
+        }
+        else if (stakeSz.equals("15 BB")) { // 0
+            int[][] tPush2 = new int[][] {
+                    {3,3,3,0,0,0,0,0,0,0,0,0,0},
+                    {3,3,0,0,0,0,0,0,0,0,0,0,0},
+                    {3,0,3,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,3,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,3,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0},
+            };
+            mv.setCurrPush(tPush2);
         }
 
     }
@@ -5405,6 +5622,257 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    protected void rPushAction(String pos, MyView mv, int[][] tDiff, int[][] tPush ,String  stakeSz) {
+        int tCurrStake = 100;
+        if (stakeSz.length()>3) {
+            try {
+                String tStr = stakeSz.substring(0, stakeSz.length() - 3);
+                tCurrStake = Integer.parseInt(tStr);
+            } catch (NumberFormatException ex) {
+                return;
+            }
+        }
+        else{
+            return;
+        }
+
+
+        if (pos.equals("SB")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            if (tCurrStake < 31) {
+                tPush[0][1] = 3; //AKs
+                tPush[0][2] = 3; //AQs
+                tPush[0][3] = 3; //AJs
+                tPush[0][4] = 3; //ATs
+
+                tPush[2][2] = 3; //QQ
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 3; //88
+
+                tPush[1][0] = 3; //AKo
+                tPush[2][0] = 3; //AQo
+                tPush[3][0] = 3; //AJo
+            }
+            if (tCurrStake < 26) {
+                tPush[7][7] = 3; //77
+                tPush[4][0] = 3; //ATo
+            }
+            if (tCurrStake<21){
+                tPush[0][5] = 3; //A9s
+                tPush[8][8] = 3; //66
+                tPush[9][9] = 3; //55
+            }
+            if (tCurrStake<16){
+                tPush[0][6] = 3; //A8s
+                tPush[0][7] = 3; //A7s
+                tPush[1][2] = 3; //KQs
+                tPush[10][10] = 3; //44
+                tPush[11][11] = 2; //33
+                tPush[5][0] = 3; //A9o
+                tPush[6][0] = 3; //A8o
+            }
+            mv.setCurrPush(tPush);
+        }
+        else if (pos.equals("Button")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            if (tCurrStake < 31) {
+                tPush[0][1] = 3; //AKs
+                tPush[0][2] = 3; //AQs
+                tPush[0][3] = 2; //AJs
+
+                tPush[2][2] = 3; //QQ
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 3; //88
+
+                tPush[1][0] = 3; //AKo
+                tPush[2][0] = 3; //AQo
+            }
+            if (tCurrStake < 26) {
+                tPush[7][7] = 3; //77
+                tPush[8][8] = 3; //66
+
+                tPush[0][3] = 3; //AJs
+                tPush[0][4] = 2; //ATs
+                tPush[0][5] = 2; //A9s
+
+                tPush[3][0] = 3; //AJo
+                tPush[4][0] = 2; //ATo
+            }
+            if (tCurrStake<21){
+                tPush[9][9] = 3; //55
+                tPush[0][4] = 3; //ATs
+                tPush[0][6] = 2; //A8s
+                tPush[5][0] = 2; //A9o
+            }
+            if (tCurrStake<16){
+                tPush[10][10] = 3; //44
+                tPush[0][5] = 3; //A9s
+                tPush[0][6] = 3; //A8s
+                tPush[0][7] = 2; //A7s
+                tPush[4][0] = 3; //ATo
+                tPush[5][0] = 3; //A9o
+                tPush[6][0] = 2; //A8o
+                tPush[1][2] = 3; //KQo
+            }
+            mv.setCurrPush(tPush);
+        }
+        else if (pos.equals("4")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            tPush[2][2] = 3; //QQ
+            tPush[0][1] = 3; //AKs
+            if (tCurrStake < 26) {
+                tPush[0][2] = 3; //AQs
+                tPush[0][3] = 1; //AJs
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 2; //88
+                tPush[1][0] = 3; //AKo
+                tPush[2][0] = 1; //AQo
+            }
+            if (tCurrStake<21){
+                tPush[0][3] = 2; //AJs
+                tPush[6][6] = 3; //88
+                tPush[7][7] = 3; //77
+                tPush[2][0] = 3; //AQo
+                tPush[3][0] = 1; //AJo
+            }
+            if (tCurrStake<16){
+                tPush[0][3] = 3; //AJs
+                tPush[0][4] = 3; //ATs
+                tPush[0][5] = 1; //A9s
+                tPush[8][8] = 3; //66
+                tPush[9][9] = 3; //55
+                tPush[3][0] = 3; //AJo
+                tPush[4][0] = 2; //ATo
+
+            }
+            mv.setCurrPush(tPush);
+        }
+        else if (pos.equals("5")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            tPush[2][2] = 3; //QQ
+            tPush[0][1] = 3; //AKs
+            if (tCurrStake < 26) {
+                tPush[0][2] = 1; //AQs
+                tPush[1][0] = 2; //AKo
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 1; //99
+            }
+            if (tCurrStake<21){
+                tPush[0][2] = 3; //AQs
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 1; //88
+                tPush[7][7] = 1; //77
+                tPush[1][0] = 3; //AKo
+                tPush[2][0] = 3; //AQo
+            }
+            if (tCurrStake<16){
+                tPush[0][3] = 3; //AJs
+                tPush[0][4] = 2; //ATs
+                tPush[6][6] = 3; //88
+                tPush[7][7] = 3; //77
+                tPush[8][8] = 3; //66
+                tPush[3][0] = 2; //AJo
+            }
+            mv.setCurrPush(tPush);
+
+        }
+        else if (pos.equals("6")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            tPush[2][2] = 3; //QQ
+            tPush[0][1] = 3; //AKs
+            if (tCurrStake < 26) {
+                tPush[1][0] = 2; //AKo
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 1; //TT
+            }
+            if (tCurrStake<21){
+                tPush[1][0] = 3; //AKo
+                tPush[0][2] = 2; //AQs
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 1; //99
+                tPush[6][6] = 1; //88
+                tPush[2][0] = 1; //AQo
+            }
+            if (tCurrStake<16){
+                tPush[0][2] = 3; //AQs
+                tPush[0][3] = 2; //AJs
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 2; //88
+                tPush[7][7] = 1; //77
+                tPush[2][0] = 3; //AQo
+                tPush[3][0] = 2; //AJo
+            }
+            mv.setCurrPush(tPush);
+        }
+        else if (pos.equals("7")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            tPush[2][2] = 3; //QQ
+            tPush[0][1] = 3; //AKs
+            if (tCurrStake < 26) {
+                tPush[1][0] = 3; //AKo
+                tPush[3][3] = 3; //JJ
+                tPush[4][4] = 2; //TT
+                tPush[0][2] = 1; //AQs
+            }
+            if (tCurrStake<21){
+                tPush[2][0] = 1; //AQo
+            }
+            if (tCurrStake<16){
+                tPush[0][2] = 3; //AQs
+                tPush[0][3] = 1; //AJs
+                tPush[2][0] = 3; //AQo
+                tPush[4][4] = 3; //TT
+                tPush[5][5] = 3; //99
+                tPush[6][6] = 3; //88
+            }
+            mv.setCurrPush(tPush);
+        }
+        else if (pos.equals("8")) {
+            mv.setCurrPrc(-1);
+            tPush[0][0] = 3; //AA
+            tPush[1][1] = 3; //KK
+            if (tCurrStake < 26) {
+                tPush[0][1] = 2; //AKs
+                tPush[2][2] = 2; //QQ
+                tPush[1][0] = 1; //AKo
+                tPush[3][3] = 1; //JJ
+            }
+            if (tCurrStake<21){
+                tPush[1][0] = 2; //AKo
+                tPush[2][2] = 3; //QQ
+                tPush[4][4] = 1; //TT
+            }
+            if (tCurrStake<16){
+                tPush[0][1] = 3; //AKs
+                tPush[0][2] = 2; //AQs
+                tPush[2][0] = 1; //AQo
+                tPush[3][3] = 2; //JJ
+                tPush[4][4] = 2; //TT
+                tPush[5][5] = 1; //99
+            }
+            mv.setCurrPush(tPush);
+        }
+    }
+
     protected void r0Action(String pos, MyView mv, int[][] tDiff, int[][] tPush ,String  stakeSz, int[][] tNull) {
         int tCurrStake = 100;
         if (stakeSz.length()>3) {
@@ -5421,15 +5889,35 @@ public class MainActivity extends AppCompatActivity {
 
         if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
-                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
@@ -5627,12 +6115,32 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
                         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -5694,7 +6202,7 @@ public class MainActivity extends AppCompatActivity {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -5754,17 +6262,37 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
-                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -5928,16 +6456,36 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
                         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
@@ -6034,20 +6582,40 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
-                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 };
                 mv.setCurrPush(tNull);
@@ -6097,13 +6665,33 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("5")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
-                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -6140,7 +6728,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -6151,6 +6739,26 @@ public class MainActivity extends AppCompatActivity {
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -6222,18 +6830,18 @@ public class MainActivity extends AppCompatActivity {
             if ((tCurrStake>10)&&(tCurrStake<=12)) {//12
                 int[][] tPush2 = new int[][]{
                         {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
-                        {3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 2, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 3, 3, 2, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -6242,18 +6850,18 @@ public class MainActivity extends AppCompatActivity {
             else if ((tCurrStake>8)&&(tCurrStake<=10)) {//10
                 int[][] tPush2 = new int[][]{
                         {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
-                        {3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-                        {3, 2, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 3, 3, 2, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -6262,18 +6870,18 @@ public class MainActivity extends AppCompatActivity {
             else if ((tCurrStake>6)&&(tCurrStake<=8)) {//8
                 int[][] tPush2 = new int[][]{
                         {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
-                        {3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
                         {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -6302,15 +6910,35 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
-                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
@@ -6610,15 +7238,35 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
                 int[][] tDiff2 = new int[][]{
-                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
                         {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
@@ -6776,13 +7424,33 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if ((tCurrStake==40)||(tCurrStake==50)) {
+            if (tCurrStake==50) {
+                int[][] tDiff2 = new int[][]{
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tNull);
+                mv.setCurrDiff(tDiff2);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake==40) {
                 int[][] tDiff2 = new int[][]{
                         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                        {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -6913,15 +7581,55 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("Button")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1},
-                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
@@ -6936,17 +7644,57 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {3, 3, 3, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -6959,16 +7707,56 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("5")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -6982,13 +7770,53 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
                         {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -7021,16 +7849,56 @@ public class MainActivity extends AppCompatActivity {
 
         if (pos.equals("Button")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 3, 1, 1, 1, 1, 3, 1, 1},
-                        {3, 3, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
                         {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
@@ -7044,11 +7912,51 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 0, 1, 3, 0, 0},
+                        {3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 0, 1, 1, 0, 0},
                         {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 0, 1, 1, 0, 0},
+                        {3, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
@@ -7067,14 +7975,54 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("5")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 0, 0, 1, 0, 0, 0},
                         {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
@@ -7090,9 +8038,49 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 1, 0, 0, 0},
                         {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7127,18 +8115,58 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1},
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
                         {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {3, 1, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7150,9 +8178,29 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("5")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 1, 1, 1, 0},
                         {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7160,8 +8208,28 @@ public class MainActivity extends AppCompatActivity {
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0},
+                        {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7173,17 +8241,57 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0},
-                        {3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7212,10 +8320,50 @@ public class MainActivity extends AppCompatActivity {
 
         if (pos.equals("5")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 0, 0, 0, 1, 1, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
                         {3, 3, 3, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0},
-                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -7235,17 +8383,57 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 25) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 0, 0, 0, 0, 1, 0, 0, 0},
                         {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7274,17 +8462,57 @@ public class MainActivity extends AppCompatActivity {
 
         if (pos.equals("6")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
-                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 30) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7312,7 +8540,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("BB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {//25 icm
+            if ((tCurrStake > 20)&&(tCurrStake < 30)) {//25 icm
                 int[][] tPush2 = new int[][]{
                         {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -7323,10 +8551,90 @@ public class MainActivity extends AppCompatActivity {
                         {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
                         {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
                         {1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-                        {3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 15)&&(tCurrStake < 21)) {//20 icm
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 10)&&(tCurrStake < 16)) {//15 icm
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 5)&&(tCurrStake < 11)) {//10 icm
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if (tCurrStake < 6) {//5 icm
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
+                        {2, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -7335,17 +8643,57 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake>15)&&(tCurrStake<30)) { // 25-20bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                        {3, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake>10)&&(tCurrStake<16)) { // 15bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if (tCurrStake<11) { // 10bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
@@ -7358,13 +8706,13 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("Button")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
-                int[][] tPush2 = new int[][]{
+            if ((tCurrStake > 15)&&(tCurrStake < 29)) {
+                int[][] tPush2 = new int[][]{ //25bb
                         {3, 3, 3, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0},
-                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -7378,20 +8726,60 @@ public class MainActivity extends AppCompatActivity {
                 mv.setCurrDiff(tNull);
                 mv.setCurrPrc(-1);
             }
+            if (tCurrStake < 16) {
+                int[][] tPush2 = new int[][]{ //15bb
+                        {3, 3, 3, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0},
+                        {3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
         }
         else if (pos.equals("4")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake < 30)&&(tCurrStake > 20)) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                         {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { //20
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -7419,19 +8807,39 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("BB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 1},
-                        {3, 3, 3, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
-                        {3, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { //15 bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
                 };
@@ -7442,17 +8850,37 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { // 15bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
@@ -7465,15 +8893,35 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("Button")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
-                        {3, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { //15
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
@@ -7503,12 +8951,32 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("BB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 3, 3, 1, 3, 3, 3, 3},
-                        {3, 3, 3, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { //15
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
@@ -7526,17 +8994,37 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-                        {3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else { //15 bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
@@ -7549,14 +9037,34 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (pos.equals("Button")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if ((tCurrStake > 15)&&(tCurrStake < 30)) { //25 bb
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-                        {3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else  { //15 bb
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
@@ -7588,16 +9096,16 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 1, 3, 1, 3, 1, 1, 1},
                         {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -7611,15 +9119,15 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 1, 1, 0, 1, 1, 1, 0},
-                        {3, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
@@ -7649,14 +9157,14 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 3, 1, 1, 3, 3, 3, 3},
-                        {3, 3, 3, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
@@ -7672,16 +9180,16 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 1, 0, 0, 1, 1, 0, 0},
-                        {3, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -7709,18 +9217,18 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 3, 3, 3, 3},
-                        {3, 3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
                 };
                 mv.setCurrPush(tPush2);
@@ -7732,16 +9240,16 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 0, 0, 1, 1, 0, 0},
-                        {3, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {3, 1, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {1, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0},
+                        {3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {1, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -7770,14 +9278,14 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 3, 3, 1, 1, 1, 1, 1},
-                        {3, 3, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
@@ -7808,13 +9316,13 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 3, 1, 1, 1},
-                        {3, 3, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
@@ -7846,13 +9354,13 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 3, 3, 3, 1},
-                        {3, 3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
@@ -7884,12 +9392,12 @@ public class MainActivity extends AppCompatActivity {
             mv.setCurrPrc(-1);
             if (tCurrStake < 30) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 0, 0, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
                         {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
@@ -7920,21 +9428,41 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 18) {
+            if (tCurrStake < 11) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 3, 3, 3, 1, 3, 1, 1, 1},
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 0, 0},
-                        {1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 0, 0},
-                        {3, 1, 1, 0, 0, 0, 1, 1, 3, 1, 1, 1, 1},
-                        {1, 1, 1, 0, 0, 0, 0, 0, 0, 3, 1, 1, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 18) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 2, 1, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -7958,21 +9486,61 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("SB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 30) {
+            if (tCurrStake < 16) {
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-                        {3, 1, 1, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0},
-                        {1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0},
-                        {1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0},
-                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0},
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 21) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 26) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -7996,21 +9564,41 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("BB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 18) {
+            if (tCurrStake < 11) {
                 int[][] tPush2 = new int[][]{
-                        {1, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 3},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-                        {1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
-                        {1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1},
-                        {3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {3, 3, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {3, 1, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            else if (tCurrStake < 18) {
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 3, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0},
+                        {3, 3, 1, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 1, 3, 3, 2, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0},
+                        {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0},
+                        {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0},
+                        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -8034,21 +9622,181 @@ public class MainActivity extends AppCompatActivity {
         }
         if (pos.equals("BB")) {
             mv.setCurrPrc(-1);
-            if (tCurrStake < 18) {
+            if ((tCurrStake > 15)&&(tCurrStake < 18)) { //17
                 int[][] tPush2 = new int[][]{
-                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1},
-                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 13)&&(tCurrStake < 16)) { //15
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {2, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 11)&&(tCurrStake < 14)) { //13
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {2, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 9)&&(tCurrStake < 12)) { //11
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 7)&&(tCurrStake < 10)) { //9
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
                         {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 1, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
-                        {3, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
                         {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
                         {3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
                         {3, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
                         {3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1},
-                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1},
                         {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1},
                         {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
                         {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 5)&&(tCurrStake < 8)) { //7
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 3, 2, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 3, 2, 1, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 2, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if ((tCurrStake > 3)&&(tCurrStake < 6)) { //5
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 2, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 3, 3, 3, 3, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 3, 3, 3, 3, 2, 2, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 2},
+                        {3, 3, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3},
+                        {3, 2, 1, 1, 1, 1, 1, 1, 1, 3, 2, 3, 3},
+                        {3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if (tCurrStake == 3) { //3
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                        {3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 2, 3, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 2, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 2, 3, 3, 1, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 3, 2, 3, 1},
+                        {3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3},
+                };
+                mv.setCurrPush(tPush2);
+                mv.setCurrDiff(tNull);
+                mv.setCurrPrc(-1);
+            }
+            if (tCurrStake == 2) { //2
+                int[][] tPush2 = new int[][]{
+                        {3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1},
+                        {3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 };
                 mv.setCurrPush(tPush2);
                 mv.setCurrDiff(tNull);
@@ -8126,6 +9874,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (stake.equals("Push")){
             pushAction(pos, mv, tDiff,tPush, stakeSz);
+        }
+        else if (stake.equals("RPush")){
+            rPushAction(pos, mv, tDiff,tPush, stakeSz);
         }
         else if (stake.equals("R0")){
             r0Action(pos, mv, tDiff,tPush, stakeSz, tNull);

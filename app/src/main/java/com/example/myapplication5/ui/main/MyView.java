@@ -903,9 +903,9 @@ public class MyView extends View {
         else if (m_currPos.equals("Button")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__btn );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                    //Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__btn );
+                    //canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    //return;
                 }
                 if (m_currAct.equals("R0")) {
                     Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__btn__co );
@@ -1146,9 +1146,9 @@ public class MyView extends View {
         else if (m_currPos.equals("4")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__co );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                    //Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__co );
+                    //canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    //return;
                 }
                 if (m_currAct.equals("R0")) {
                     Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__co__hj );
@@ -1330,9 +1330,9 @@ public class MyView extends View {
         else if (m_currPos.equals("5")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__hj );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                    //Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__hj );
+                    //canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                    //return;
                 }
                 if (m_currAct.equals("R0")) {
                     Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__hj__mp );
@@ -1487,9 +1487,9 @@ public class MyView extends View {
         else if (m_currPos.equals("6")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__lj );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                 //   Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__lj );
+                 //   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                 //   return;
                 }
                 if (m_currAct.equals("R0")) {
                     Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.vs__open__25bb____15bb__mp__mp );
@@ -1659,9 +1659,9 @@ public class MyView extends View {
         else if (m_currPos.equals("7")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__mp );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                 //   Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__mp );
+                 //   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                 //   return;
                 }
             }
             else if ((tCurrStake > 17) && (tCurrStake < 23)) {
@@ -1703,9 +1703,9 @@ public class MyView extends View {
         else if (m_currPos.equals("8")) {
             if ((tCurrStake > 12) && (tCurrStake < 18)) {
                 if (m_currAct.equals("0")) {
-                    Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__ep );
-                    canvas.drawBitmap(largeImg, lpos, tpos, paint);
-                    return;
+                 //   Bitmap largeImg = BitmapFactory.decodeResource(getResources(), R.drawable.rfi__15bb__polar__ep );
+                 //   canvas.drawBitmap(largeImg, lpos, tpos, paint);
+                 //   return;
                 }
             }
             else if ((tCurrStake > 17) && (tCurrStake < 23)) {

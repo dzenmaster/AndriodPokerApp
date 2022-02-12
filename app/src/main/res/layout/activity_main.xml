@@ -122,6 +122,14 @@
                     android:textSize="15sp" />
 
                 <RadioButton
+                    android:id="@+id/radioButtonRPush"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="38dp"
+                    android:text="RPush"
+                    android:textSize="15sp" />
+
+                <RadioButton
                     android:id="@+id/radioButtonRaise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
